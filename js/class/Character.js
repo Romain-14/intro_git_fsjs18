@@ -13,7 +13,6 @@ export default class Character {
 
         // on récupère l'élément qui va recevoir la mise à jour du log
         this.logDOM = document.querySelector("#log");
-
     }
 
     // méthodes lié au boutons (actions)
@@ -32,10 +31,11 @@ export default class Character {
     }
 
     setArmorUp(){
-        let ratio = Math.round(this.armor * Math.random());
+        const ratio = Math.round(this.armor * Math.random());
         this.armor += ratio / 2;
         this.log("def");
     }
+
     setCastSpell(opponent){
         if(this.mp > 0 ){
             this.dmg     = getRandomInteger(1, this.mp);
@@ -44,11 +44,11 @@ export default class Character {
             this.log("spell", opponent);
             return true;
         } else {
-            if(opponent.name !== "Squall")
+            if(opponent.name !== "Squall") {
                 this.logDOM
                     .innerHTML = `<p>Plus assez de magie pour lancer un sort !!</p>`;
-            return false;
-            
+            }                
+            return false;            
         }
     }
     
@@ -70,7 +70,5 @@ export default class Character {
                     <p>${this.name} augmente son armure à : ${this.armor}</p>
                 `;
         }
-
     }
-
 }

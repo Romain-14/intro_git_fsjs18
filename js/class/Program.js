@@ -74,8 +74,5 @@ export default class Program {
         if(random === 1) this.bahamut.setAttack(this.squall);
         if(random === 2) this.bahamut.setArmorUp();
         if(random === 3 && !this.bahamut.setCastSpell(this.squall)) this.counter(1, 2);
-
     }
-
-
 }
